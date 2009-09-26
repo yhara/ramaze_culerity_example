@@ -14,13 +14,20 @@ to JRuby), try [culerity](http://github.com/langalex/culerity).
 Prerequisite
 ============
 
-1. Ramaze (2009.07)
+1. Ramaze (2009.07) for CRuby
 
     $ gem install ramaze
 
-2. JRuby (1.3.0)
-
-3. culerity (0.2.3)
+2. culerity (0.2.3) for CRuby
 
     $ gem install langalex-culerity --source http://gems.github.com
+
+3. JRuby (1.3.0)
+
+   must be executable by 'jruby'.
+
+4. Celerity (0.0.7) for JRuby
+
+    $ jgem install celerity
+
 
