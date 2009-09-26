@@ -1,0 +1,26 @@
+Example of Ramaze and Culerity
+==============================
+
+Ramaze is a web application framework for Ruby (you know),
+Celerity is a JRuby library for testing Ruby apps with 
+HtmlUnit – a headless Java browser with JavaScript support. 
+
+If your Ramaze app works with JRuby, you don't need Culerity.
+http://github.com/alvinschur/celerity-examples will help you.
+
+But if not (eg. your app uses some C libraries not compatible
+to JRuby), try [culerity](http://github.com/langalex/culerity).
+
+Prerequisite
+============
+
+1. Ramaze (2009.07)
+
+    $ gem install ramaze
+
+2. JRuby (1.3.0)
+
+3. culerity (0.2.3)
+
+    $ gem install langalex-culerity --source http://gems.github.com
+
