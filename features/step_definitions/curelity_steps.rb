@@ -1,5 +1,4 @@
 require 'tempfile'
-$LOAD_PATH.unshift "/Users/yhara/research/Ruby/_tests/culerity/lib/"
 require 'culerity'
 
 Before do
