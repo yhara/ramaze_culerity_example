@@ -1,24 +1,34 @@
+require 'tempfile'
+$LOAD_PATH.unshift "/Users/yhara/research/Ruby/_tests/culerity/lib/"
 require 'culerity'
 
 Before do
-  unless $rails_server
-    $rails_server = Culerity::run_rails
-    sleep 5
-  end
+  # TODO: start ramaze app in 7001, in test environment
+#  unless $rails_server
+#    $rails_server = Culerity::run_rails
+#    sleep 5
+#  end
   
+  # invoke jruby eval server (communicate via pipe)
+  # the server has instances of Celerity::Browser
   $server ||= Culerity::run_server
+
+  # get the viatual browser, running in the server
   $browser = Culerity::RemoteBrowserProxy.new $server, {:browser => :firefox}
-  @host = 'http://localhost:3001'
+
+  # is needed to open pages
+  @host = 'http://localhost:7001'
 end
 
 at_exit do
   $browser.exit if $browser
   $server.exit_server if $server
-  Process.kill(6, $rails_server.pid.to_i) if $rails_server
+  # TODO: stop ramaze app
+  #Process.kill(6, $rails_server.pid.to_i) if $rails_server
 end
 
-When /I press "(.*)"/ do |button|
-  $browser.button(:text, button).click
+When /I press "(.*)"/ do |value|
+  $browser.button(:value, value).click
   assert_successful_response
 end
 
@@ -47,8 +57,12 @@ When /I choose "(.*)"/ do |field|
   $browser.radio(:id, find_label(field).for).set(true)
 end
 
-When /I go to (.+)/ do |path|
-  $browser.goto @host + path_to(path)
+When /I go to the (.+) page/ do |name|
+  path = case name
+         when "index" then "/"
+         else raise "unknown page name: #{name}"
+         end
+  $browser.goto "#{@host}#{path}"
   assert_successful_response
 end
 

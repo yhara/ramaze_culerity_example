@@ -30,4 +30,31 @@ Prerequisite
 
     $ jgem install celerity
 
+How to run
+==========
 
+1. Start Ramaze app with port 7001
+
+    $ ramaze start --port 7001
+
+2. Run cucumber
+
+    $ cucumber
+
+Then you will see...
+
+    /Users/yhara/research/Ruby/_tests/ramaze_culerity_example % cucumber
+    Feature: Greeting
+      In order to enjoy Ajaxing
+      As a user
+      I want to see the greeting
+
+      Scenario: Greeting from browser          # features/greeting.feature:6
+        Given I go to the index page           # features/step_definitions/curelity_steps.rb:60
+        When I press "push"                    # features/step_definitions/curelity_steps.rb:30
+        And I wait for the AJAX call to finish # features/step_definitions/curelity_steps.rb:69
+        Then I should see "Hello, world!"      # features/step_definitions/curelity_steps.rb:73
+
+    1 scenario (1 passed)
+    4 steps (4 passed)
+    0m5.223s
