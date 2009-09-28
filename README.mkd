@@ -3,13 +3,20 @@ Example of Ramaze and Culerity
 
 Ramaze is a web application framework for Ruby (you know),
 Celerity is a JRuby library for testing Ruby apps with 
-HtmlUnit – a headless Java browser with JavaScript support. 
+[HtmlUnit](http://htmlunit.sourceforge.net/) - a headless
+Java browser with JavaScript support. Cucumber is a testing
+framework with BDD style.
 
-If your Ramaze app works with JRuby, you don't need Culerity.
-http://github.com/alvinschur/celerity-examples will help you.
+If your Ramaze app works with JRuby, you don't need curelity.
+[celerity-examples](http://github.com/alvinschur/celerity-examples)
+will help you.
 
 But if not (eg. your app uses some C libraries not compatible
 to JRuby), try [culerity](http://github.com/langalex/culerity).
+
+culerity invokes JRuby and provides access to the browser
+which is running on the JRuby. Your ramaze app does not need
+to run on JRuby.
 
 Prerequisite
 ============
@@ -24,7 +31,7 @@ Prerequisite
 
 3. JRuby (1.3.0)
 
-   must be executable by 'jruby'.
+    must be executable by 'jruby'.
 
 4. Celerity (0.0.7) for JRuby
 
@@ -41,7 +48,7 @@ How to run
 
     $ cucumber
 
-Then you will see...
+3. Then you will see...
 
     /Users/yhara/research/Ruby/_tests/ramaze_culerity_example % cucumber
     Feature: Greeting
