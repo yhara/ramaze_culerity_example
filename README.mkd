@@ -7,7 +7,7 @@ Celerity is a JRuby library for testing Ruby apps with
 Java browser with JavaScript support. Cucumber is a testing
 framework with BDD style.
 
-If your Ramaze app works with JRuby, you don't need curelity.
+If your Ramaze app works with JRuby, you don't need culerity.
 [celerity-examples](http://github.com/alvinschur/celerity-examples)
 will help you.
 
